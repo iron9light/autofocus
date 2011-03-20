@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+        <link href="css/style.css" rel="stylesheet"/>
+        <link href="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.css" rel="stylesheet"/>
+        <link href="https://github.com/jtsage/jquery-mobile-simpledialog/raw/master/jquery.mobile.simpledialog.css" rel="stylesheet"/>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js" type="text/javascript"></script>
+        <script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.js" type="text/javascript"></script>
+        <script src="js/json2.js" type="text/javascript"></script>
+        <script src="js/model.js" type="text/javascript"></script>
+        <script src="js/view.js" type="text/javascript"></script>
+        <script src="js/controller.js" type="text/javascript"></script>
+		<script src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.js" type="text/javascript"></script>
+		<script src="https://github.com/jtsage/jquery-mobile-simpledialog/raw/master/jquery.mobile.simpledialog.js" type="text/javascript"></script>
+		<script src="js/jquerymobileplus.js" type="text/javascript"></script>
+	<title>AutoFocus</title>
+	</head>
+	<body>
+		<script id="pagetmpl" type="text/x-jquery-tmpl">
+        <div data-role="page" id="page${pageNumber}" data-url="page${pageNumber}">
+			<div data-role="header" data-backbtn="false">
+			{{if prePageNumber}}<a href="#page${prePageNumber}" data-icon="arrow-l" class="prePageButton ui-btn-left" data-direction="reverse">Page ${prePageNumber}</a>{{/if}}
+			<h1>Page ${pageNumber}</h1>
+			{{if nextPageNumber}}<a href="#page${nextPageNumber}" data-icon="arrow-r" class="nextPageButton ui-btn-right">Page ${nextPageNumber}</a>{{/if}}
+			</div>
+			<div data-role="content">
+				<ul data-role="listview">
+				    {{each pageTasks}}
+					<li titel="${$value.status}" class="${$value.status}">
+						<a href="#dotask${$value.id}" class="taskname" data-rel="dialog" data-transition="pop">${$value.name}</a><p class="ui-li-aside">${$value.status}</p>
+						<a href="#task${$value.id}">more actions</a>
+					</li>
+					{{/each}}
+				</ul>
+			</div>
+			<div data-role="footer">
+				<input type="text" name="newTask" id="addTask" value="" placeholder="Add new task."/>
+			</div>
+		</div>
+		</script>
+		<script id="tasktmpl" type="text/x-jquery-tmpl">
+		<div data-role="page" id="task${id}" data-url="task${id}">
+			<div data-role="header" data-backbtn="true">
+				<a href="#page${$item.pageNumber}" data-icon="arrow-l" class="prePageButton ui-btn-left" data-direction="reverse">Page ${$item.pageNumber}</a>
+				<h1>${status}</h1>
+			</div>
+			<div data-role="content">
+				<h3>${name}</h3>
+				<p contenteditable="true">${note}</p>
+			</div>
+		</div>
+		</script>
+		<script id="dotasktmpl" type="text/x-jquery-tmpl">
+		<div data-role="dialog" id="dotask${id}" data-url="dotask${id}">
+			<div data-role="header">
+				<h1>${name}<h1>
+			</div>
+			<div data-role="content">
+				<div data-role="controlgroup">
+					{{if $item.start}}<a id="startTask" data-role="button" data-rel="back">Start</a>{{/if}}
+					{{if $item.complete}}<a id="completeTask" data-role="button" data-rel="back">Complete</a>{{/if}}
+					{{if $item.hold}}<a id="holdTask" data-role="button" data-rel="back">Hold</a>{{/if}}
+					{{if $item.postpone}}<a id="postponeTask" data-role="button" data-rel="back">Postpone</a>{{/if}}
+					{{if $item.cancel}}<a id="cancelTask" data-role="button" data-rel="back">Cancel</a>{{/if}}
+				</div>
+			</div>
+		</div>
+		</script>
+		<script id="addtasktmpl" type="text/x-jquery-tmpl">
+		<div data-role="dialog" id="newTaskDialog">
+			<header date-role="header">
+				<h1 id="name">${name}<h1>
+			</header>
+			<article data-role="content">
+				<div data-role="controlgroup">
+					<a id="addTask" data-role="button" data-rel="back">Add</a>
+					<a id="cancel" data-role="button" data-rel="back">Cancel</a>
+				</div>
+			</article>
+		</div>
+		</script>
+	</body>
+</html>
