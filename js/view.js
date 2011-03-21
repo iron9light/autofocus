@@ -173,3 +173,12 @@ $('div[id^="page"]').live('swipeleft', function(){
 $('div[id^="page"]').live('swiperight', function(){
 	$('header a.prePageButton', this).click();
 });
+
+var statustheme = {
+		'next':"c",
+		'active':"b",
+		'postponed':"e",
+		'hold':"a",
+		'canceled':"a",
+		'done':"a"
+}
