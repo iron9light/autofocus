@@ -178,7 +178,7 @@ var statustheme = {
 		'next':"c",
 		'active':"b",
 		'postponed':"e",
-		'hold':"a",
-		'canceled':"a",
-		'done':"a"
+		'hold':"c",
+		'canceled':"c",
+		'done':"c"
 }

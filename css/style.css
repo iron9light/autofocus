@@ -1,3 +1,12 @@
 li.done .taskname {
-	text-decoration:line-through;
+	color:gray;
+}
+
+li.canceled .taskname {
+	color:gray;
+	text-decoration:line-through !important;
+}
+
+li.hold .taskname {
+	color:gray;
 }
