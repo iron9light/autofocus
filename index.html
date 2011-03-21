@@ -28,7 +28,8 @@
 				<ul data-role="listview">
 				    {{each pageTasks}}
 					<li titel="${$value.status}" class="${$value.status}" data-theme="${statustheme[$value.status]}">
-						<a href="#dotask${$value.id}" class="taskname" data-rel="dialog" data-transition="pop">${$value.name}</a><p class="ui-li-count">${$value.status}</p>
+						<img src="images/status-${$value.status}.png" alt="${$value.status}" class="ui-li-icon"/>
+						<a href="#dotask${$value.id}" class="taskname" data-rel="dialog" data-transition="pop">${$value.name}</a>
 						<a href="#task${$value.id}">more actions</a>
 					</li>
 					{{/each}}
