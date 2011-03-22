@@ -181,4 +181,8 @@ var statustheme = {
 		'hold':"c",
 		'canceled':"c",
 		'done':"c"
-}
+};
+
+$(document).ready(function(){
+	window.scrollTo(0, 1);
+});
