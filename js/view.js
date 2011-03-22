@@ -123,48 +123,6 @@ $('div[id^="page"]').live('pageshow', function(){
 	$('div[id^="dotask"]').remove();
 });
 
-//$('input[id="addTask"]').live('input', function(){
-//	if(this.value.trim().length) {
-//		$('a[id="addTask"]').show();
-//	} else {
-//		$('a[id="addTask"]').hide();
-//	}
-//})
-
-//$('input[id="addTask"]').live('blur', function(){
-//	if(this.value.trim().length) {
-//		var dialog = createNewTask({name: $(this).val()});
-//		dialog.appendTo($.mobile.pageContainer);
-//		dialog.page();
-//		$.mobile.changePage(dialog, 'pop', false, true);
-//	}
-//});
-
-$('input[id="addTask"]').live('keypress', function(event){
-	if(event.which != 13) {
-		return;
-	}
-	
-	if(this.value.trim().length) {
-		var name = $(this).val();
-		$(this).simpledialog({
-			'mode' : 'bool',
-			'prompt' : name,
-			'buttons' : {
-				'Add': function () {
-					$(document).trigger('addtask', name);
-				},
-				'Cancel': function () {
-				}
-			}
-		})
-	}
-});
-
-//$('div[id="newTaskDialog"]').live('pagehide', function(){
-//	$(this).remove();
-//});
-
 // todo: swipe event not work
 $('div[id^="page"]').live('swipeleft', function(){
 	$('header a.nextPageButton', this).click();

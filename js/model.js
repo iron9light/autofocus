@@ -214,11 +214,18 @@ TaskBook.prototype = {
 	
 	postponePage: function(pageNumber) {
 		var page = this.getPage(pageNumber);
-		for(task in page.pageTasks) {
-			task.status = "postponed";
+		var changed = false;
+		var tasks = page.pageTasks;
+		for(var i in tasks) {
+			if(tasks[i].status == "next"){
+				tasks[i].status = "postponed";
+				changed = true;
+			}
 		}
 		
-		this.onChange();
+		if(changed){
+			this.onChange();
+		}
 	},
 	
 	taskStateMachine: {

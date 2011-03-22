@@ -25,24 +25,22 @@
 		refresh();
 	});
 	
-//	$('a[id="addTask"]').live('click', function(){
-//		var name = $('input[id="addTask"]').val();
-//		if(name.length) {
-//			var task = {
-//					name: name,
-//					status: 'next'
-//			};
-//			taskBook.addTask(task);
-//			refresh();
-//		}
-//	})
-	
-	$(document).bind('addtask', function(event, name){
-		var task = {
-				name: name,
-				status: 'next'
-		};
-		taskBook.addTask(task);
+	$('a[id="addTask"]').live('click', function(){
+		var name = $('input[id="addTask"]').val();
+		if(name.length) {
+			var task = {
+					name: name,
+					status: 'next'
+			};
+			taskBook.addTask(task);
+			refresh();
+		}
+	});
+
+	$('a[id="postponePage"]').live('click', function(){
+		var pageId = $(this).closest('div[id^="page"]')[0].id;
+		var pageNumber = getPageNumber(pageId);
+		taskBook.postponePage(pageNumber);
 		refresh();
 	});
 })(jQuery);
