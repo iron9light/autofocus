@@ -183,7 +183,7 @@ var statustheme = {
 		'done':"c"
 };
 
-$(document).ready(function(){
+$(window).load(function(){
 	setTimeout(function(){ 
 		window.scrollTo(0, 1);
 	}, 100);  //hide iPhone toolbar
