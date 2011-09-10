@@ -26,8 +26,9 @@
 				<ul data-role="listview">
 				    {{each pageTasks}}
 					<li titel="${$value.status}" class="${$value.status}" data-theme="${statustheme[$value.status]}">
-						<img src="images/status-${$value.status}.png" alt="${$value.status}" class="ui-li-icon"/>
-						<a href="#dotask${$value.id}" class="taskname" data-rel="dialog" data-transition="pop">${$value.name}</a>
+						<a href="#dotask${$value.id}" class="taskname" data-rel="dialog" data-transition="pop">
+							<img src="images/status-${$value.status}.png" alt="${$value.status}" class="ui-li-icon"/>${$value.name}
+						</a>
 						<a href="#task${$value.id}">more actions</a>
 					</li>
 					{{/each}}
@@ -75,15 +76,15 @@
 		</script>
 		<script id="addtasktmpl" type="text/x-jquery-tmpl">
 		<div data-role="dialog" id="newTaskDialog">
-			<header date-role="header">
+			<div date-role="header">
 				<h1 id="name">${name}<h1>
-			</header>
-			<article data-role="content">
+			</div>
+			<div data-role="content">
 				<div data-role="controlgroup">
 					<a id="addTask" data-role="button" data-rel="back">Add</a>
 					<a id="cancel" data-role="button" data-rel="back">Cancel</a>
 				</div>
-			</article>
+			</div>
 		</div>
 		</script>
 	</body>
