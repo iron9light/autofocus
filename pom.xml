@@ -18,6 +18,7 @@
         <configuration>
           <srcDir>${basedir}/cs</srcDir>
           <outputDir>${basedir}/js</outputDir>
+          <bare>true</bare>
           <modifiedOnly>true</modifiedOnly>
         </configuration>
       </plugin>

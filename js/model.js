@@ -180,8 +180,8 @@ TaskBook.prototype = {
 		if(task && task.status != "done") {
 			task.status = "done";
 			task.completed = now();
-			if(task.timeron) {pageIndex
-				taskstask.timer += task.completed - task.timeron;
+			if(task.timeron) {
+				task.timer += task.completed - task.timeron;
 				task.timeron = 0;
 			}
 			
