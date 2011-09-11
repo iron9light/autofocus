@@ -1,0 +1,26 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                      http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>iron9light</groupId>
+  <artifactId>autofocus</artifactId>
+  <packaging>pom</packaging>
+  <version>0.2-SNAPSHOT</version>
+  <name>AutoFocus</name>
+  <url>http://iron9light.github.com/autofocus</url>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.github.iron9light</groupId>
+        <artifactId>coffeescript-maven-plugin</artifactId>
+        <version>1.0</version>
+        <configuration>
+          <srcDir>${basedir}/cs</srcDir>
+          <outputDir>${basedir}/js</outputDir>
+          <modifiedOnly>true</modifiedOnly>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
